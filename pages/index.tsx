@@ -1,10 +1,12 @@
 import Typography from "@/components/Typography";
+import { useUser } from "@/hooks/User";
 import { useSession } from "next-auth/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 export default function Home() {
-  const { data } = useSession();
+  const { data, isLoading } = useUser();
+
   const router = useRouter();
 
   useEffect(() => {
@@ -17,6 +19,10 @@ export default function Home() {
       router.push(`/document/new`);
     }
   }, [data]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
