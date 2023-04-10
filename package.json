@@ -9,14 +9,33 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.13",
+    "@heroicons/react": "^2.0.17",
+    "@next-auth/prisma-adapter": "^1.0.5",
+    "@prisma/client": "^4.12.0",
+    "@tanstack/react-query": "^4.28.0",
     "@types/node": "18.15.11",
     "@types/react": "18.0.33",
     "@types/react-dom": "18.0.11",
+    "@uiw/react-md-editor": "^3.20.6",
+    "clsx": "^1.2.1",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
     "next": "13.2.4",
+    "next-auth": "^4.21.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-markdown": "^8.0.6",
+    "remark-gfm": "^3.0.1",
     "typescript": "5.0.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.7",
+    "prettier-plugin-tailwindcss": "^0.2.7",
+    "prisma": "^4.12.0",
+    "tailwindcss": "^3.3.1"
   }
 }
