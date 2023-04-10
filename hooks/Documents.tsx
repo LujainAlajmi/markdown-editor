@@ -19,6 +19,7 @@ export const useDocument = (id: string) => {
 };
 
 export const useCreateDocument = () => {
+  const queryClient = useQueryClient();
   const router = useRouter();
   const { data, isLoading, error, mutate } = useMutation(
     (data: { title: string; content: string }) =>
@@ -31,6 +32,7 @@ export const useCreateDocument = () => {
       }).then((res) => res.json()),
     {
       onSuccess: (data) => {
+        queryClient.invalidateQueries(["user"]);
         router.push(`/document/${data.id}`);
 
         console.log(data);

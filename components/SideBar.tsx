@@ -7,9 +7,14 @@ import { useSession } from "next-auth/react";
 import { Document } from "@prisma/client";
 import Link from "next/link";
 import { useTitle } from "@/TitleContext";
+import { useUser } from "@/hooks/User";
 
 export default function Sidebar() {
-  const { data: session, status } = useSession();
+  const { data, isLoading } = useUser();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   const handleSignOut = async () => {
     await signOut();
@@ -43,7 +48,7 @@ export default function Sidebar() {
             </Link>
           </Button>
           <div className=" space-y-6">
-            {session?.user?.documents?.map((document: Document) => (
+            {data?.user?.documents?.map((document: Document) => (
               <div
                 key={document.id}
                 className="flex h-full  flex-row items-center space-x-4"
